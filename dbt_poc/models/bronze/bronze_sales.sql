@@ -1,0 +1,1 @@
+SELECT * FROM dbt_poc.source.fact_sales
