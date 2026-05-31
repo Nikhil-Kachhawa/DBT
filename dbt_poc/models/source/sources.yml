@@ -1,0 +1,12 @@
+sources:
+  - name: source
+    database: dbt_poc 
+    schema: source  
+    tables:
+      - name: fact_sales
+      - name: fact_returns
+      - name: dim_date
+      - name: dim_product
+      - name: dim_customer
+      - name: dim_store
+                  
