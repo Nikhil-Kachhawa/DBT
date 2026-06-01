@@ -9,4 +9,23 @@ models:
 
   - name: bronze_store
     config:
-      materialized: table      
+      materialized: table
+      
+    columns:      
+      - name: store_name
+        data_tests:
+          - accepted_values:
+              arguments: # available in v1.10.5 and higher. Older versions can set the <argument_name> as the top-level property.
+                values: ['MegaMart Manhattan', 'MegaMart Brooklyn', 'MegaMart Austin', 'MegaMart San Jose', 'Megamart Toronto 1'] # intentional name change for "MegaMart Toronto" to "MegaMart Toronto 1" to learn severity concept
+              config:
+                severity: warn  
+
+  - name: bronze_sales
+    config:
+      materialized: table    
+      
+    columns:
+      - name: sales_id
+        data_tests:
+          - unique
+          - not_null
